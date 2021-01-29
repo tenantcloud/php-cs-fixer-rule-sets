@@ -14,7 +14,10 @@ jobs:
       matrix:
         php: [7.4, 8.0]
         # Make sure we're testing with the lowest supported cs-fixer too because we're currently using @internal marked classes and those can break any time.
-        cs-fixer: [2.15.10, ^2.16.8]
+        cs-fixer: [2.16.8, ^2.16.8]
+        exclude:
+          - php: 8.0
+            laravel: 2.16.8
 
     name: PHP ${{ matrix.php }} - php-cs-fixer ${{ matrix.cs-fixer }}
 
