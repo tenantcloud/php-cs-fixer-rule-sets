@@ -13,8 +13,10 @@ jobs:
       fail-fast: true
       matrix:
         php: [7.4, 8.0]
+        # Make sure we're testing with the lowest supported cs-fixer too because we're currently using @internal marked classes and those can break any time.
+        cs-fixer: [2.16.8, ^2.16.8]
 
-    name: P${{ matrix.php }}
+    name: PHP ${{ matrix.php }} - php-cs-fixer ${{ matrix.cs-fixer }}
 
     steps:
       - name: Checkout code
@@ -42,7 +44,9 @@ jobs:
 
       - name: Install dependencies
         if: steps.composer-cache.outputs.cache-hit != 'true'
-        run: composer install --dev --prefer-dist --no-progress --no-suggest
+        run: |
+          composer require "friendsofphp/php-cs-fixer=${{ matrix.cs-fixer }}" --no-update
+          composer install --dev --prefer-dist --no-progress --no-suggest
       
       - name: Execute tests
         run: vendor/bin/pest --colors=always
