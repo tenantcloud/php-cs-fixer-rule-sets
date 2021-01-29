@@ -1,6 +1,6 @@
 {
-	"name": "tenantcloud/php-cs-fixer-config",
-	"description": "TenantCloud's base php-cs-fixer config.",
+	"name": "tenantcloud/php-cs-fixer-rule-sets",
+	"description": "TenantCloud's php-cs-fixer rule set",
 	"minimum-stability": "stable",
 	"license": "proprietary",
 	"authors": [
