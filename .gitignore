@@ -1,0 +1,16 @@
+# Editors
+.idea/*
+!.idea/fileTemplates
+
+# Dependencies
+/vendor/
+composer.lock
+
+# Cache
+.php_cs.cache
+**/.phpunit.result.cache
+
+# Misc
+.DS_Store
+/*.log
+*.swp

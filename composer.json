@@ -1,0 +1,24 @@
+{
+	"name": "tenantcloud/php-cs-fixer-config",
+	"description": "TenantCloud's base php-cs-fixer config.",
+	"minimum-stability": "stable",
+	"license": "proprietary",
+	"authors": [
+		{
+			"name": "Oleksandr Prypkhan",
+			"email": "autaut03@gmail.com"
+		}
+	],
+	"require": {
+		"php": ">=7.4",
+		"friendsofphp/php-cs-fixer": "^2.15.10"
+	},
+	"autoload": {
+		"psr-0": {
+			"": "src/"
+		},
+		"files": [
+			"src/TenantCloud/PhpCsFixer/RuleSet/add.php"
+		]
+	}
+}
