@@ -42,10 +42,10 @@ jobs:
 
       - name: Install dependencies
         if: steps.composer-cache.outputs.cache-hit != 'true'
-        run: composer install --prefer-dist --no-progress --no-suggest
+        run: composer install --dev --prefer-dist --no-progress --no-suggest
       
       - name: Execute tests
         run: vendor/bin/pest --colors=always
       
       - name: Check codestyle
-        run: vendor/bin/php-cs-fixer --dry-run --diff --using-cache=no --diff-format udiff
+        run: vendor/bin/php-cs-fixer fix --dry-run --diff --using-cache=no --diff-format udiff
