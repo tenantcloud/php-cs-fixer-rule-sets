@@ -17,7 +17,7 @@ jobs:
         cs-fixer: [2.16.8, ^2.16.8]
         exclude:
           - php: 8.0
-            laravel: 2.16.8
+            cs-fixer: 2.16.8
 
     name: PHP ${{ matrix.php }} - php-cs-fixer ${{ matrix.cs-fixer }}
 
