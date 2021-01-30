@@ -1,6 +1,21 @@
-# TenantCloud's php-cs-fixer rule set
+# TenantCloud's php-cs-fixer rule sets
 
-### Commands
+## Usage
+Install the package:
+`composer require --dev tenantcloud/php-cs-fixer-rule-sets`
+
+Then use the rule sets in php-cs-fixer's config:
+```php
+return PhpCsFixer\Config::create()
+	->setFinder($finder)
+	->setRiskyAllowed(true)
+	->setIndent("\t")
+	->setRules([
+		'@TenantCloud' => true,
+	]);
+```
+
+## Commands
 Install dependencies:
 `docker run -it --rm -v $PWD:/app -w /app composer install`
 
