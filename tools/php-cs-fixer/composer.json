@@ -1,0 +1,13 @@
+{
+    "require": {
+        "friendsofphp/php-cs-fixer": "^2.18",
+        "tenantcloud/php-cs-fixer-rule-sets": "*"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../.."
+        }
+    ],
+    "minimum-stability": "dev"
+}

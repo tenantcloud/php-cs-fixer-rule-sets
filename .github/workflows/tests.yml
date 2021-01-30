@@ -5,7 +5,8 @@ on:
   pull_request:
 
 jobs:
-  build:
+  test:
+    name: Tests on PHP ${{ matrix.php }} with php-cs-fixer ${{ matrix.cs-fixer }}
 
     runs-on: ubuntu-latest
     
@@ -18,8 +19,6 @@ jobs:
         exclude:
           - php: 8.0
             cs-fixer: 2.16.8
-
-    name: PHP ${{ matrix.php }} - php-cs-fixer ${{ matrix.cs-fixer }}
 
     steps:
       - name: Checkout code
@@ -52,6 +51,35 @@ jobs:
       
       - name: Execute tests
         run: vendor/bin/pest --colors=always
-      
-      - name: Check codestyle
-        run: vendor/bin/php-cs-fixer fix --dry-run --diff --using-cache=no --diff-format udiff
+
+  code-style:
+    name: Code style
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.0
+          extensions: dom, curl, libxml, mbstring, zip
+          tools: composer:v2
+          coverage: none
+
+      - name: Cache Composer packages
+        id: composer-cache
+        uses: actions/cache@v2
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php-
+
+      - name: Install dependencies
+        run: composer install --dev --prefer-dist --no-progress --no-suggest --working-dir=tools/php-cs-fixer
+
+      - name: Run php-cs-fixer
+        run: composer cs-fix -- --dry-run --diff --using-cache=no --diff-format udiff
