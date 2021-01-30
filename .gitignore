@@ -4,7 +4,7 @@
 
 # Dependencies
 /vendor/
-composer.lock
+/composer.lock
 
 # Cache
 .php_cs.cache
