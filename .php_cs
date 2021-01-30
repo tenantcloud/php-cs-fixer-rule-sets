@@ -2,6 +2,7 @@
 
 $finder = PhpCsFixer\Finder::create()
 	->in('src')
+	->in('tests')
 	->name('*.php')
 	->notName('_*.php')
 	->ignoreVCS(true);
