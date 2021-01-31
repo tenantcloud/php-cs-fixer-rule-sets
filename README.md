@@ -1,4 +1,4 @@
-# TenantCloud's php-cs-fixer rule sets
+# php-cs-fixer rule sets
 
 ## Usage
 Install the package:
