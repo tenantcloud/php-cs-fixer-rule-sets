@@ -6,7 +6,7 @@ Install the package:
 
 Then use the rule sets in php-cs-fixer's config:
 ```php
-return PhpCsFixer\Config::create()
+return (new PhpCsFixer\Config())
 	->setFinder($finder)
 	->setRiskyAllowed(true)
 	->setIndent("\t")
