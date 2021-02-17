@@ -53,9 +53,10 @@ class TenantCloudSet implements RuleSetDescriptionInterface
 	{
 		return [
 			'@PhpCsFixer'            => true,
-			'@PSR2'                  => true,
 			'@Symfony'               => true,
 			'@Symfony:risky'         => true,
+			'@PSR12'                 => true,
+			'@PSR12:risky'           => true,
 			'array_syntax'           => ['syntax' => 'short'],
 			'binary_operator_spaces' => [
 				'default'   => 'single_space',
@@ -70,7 +71,8 @@ class TenantCloudSet implements RuleSetDescriptionInterface
 				],
 			],
 			'braces' => [
-				'position_after_control_structures' => 'same',
+				'position_after_control_structures'                 => 'same',
+				'allow_single_line_anonymous_class_with_empty_body' => true,
 			],
 			'class_attributes_separation' => [
 				'elements' => ['method', 'property'],
@@ -110,7 +112,7 @@ class TenantCloudSet implements RuleSetDescriptionInterface
 			// Adds stupid semicolons on newlines
 			'multiline_whitespace_before_semicolons' => false,
 			// Doesn't work with "nested" chaining
-			'method_chaining_indentation' => false,
+			'method_chaining_indentation' => true,
 			'mb_str_functions'            => true,
 			'global_namespace_import'     => true,
 			'list_syntax'                 => [
@@ -129,6 +131,15 @@ class TenantCloudSet implements RuleSetDescriptionInterface
 				// Mutes trigger_error() with E_USER_DEPRECATED, but we handle deprecations manually so this is needed.
 				'mute_deprecation_error' => false,
 			],
+			'operator_linebreak' => [
+				'only_booleans' => true,
+				'position'      => 'end',
+			],
+			'native_constant_invocation'       => false,
+			'simplified_if_return'             => true,
+			'heredoc_indentation'              => true,
+			'use_arrow_functions'              => true,
+			'no_trailing_whitespace_in_string' => false,
 		];
 	}
 }

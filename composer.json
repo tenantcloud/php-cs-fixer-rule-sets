@@ -11,7 +11,7 @@
 	],
 	"require": {
 		"php": ">=7.4.9",
-		"friendsofphp/php-cs-fixer": "^2.16.8"
+		"friendsofphp/php-cs-fixer": "^2.18.2"
 	},
 	"require-dev": {
 		"pestphp/pest": "^1.0"
