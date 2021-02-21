@@ -1,85 +1,93 @@
 name: Tests
 
 on:
-  push:
-  pull_request:
+    push:
+    pull_request:
 
 jobs:
-  test:
-    name: Tests on PHP ${{ matrix.php }} with php-cs-fixer ${{ matrix.cs-fixer }}
+    test:
+        name: Tests & PHPStan on PHP ${{ matrix.php }} with php-cs-fixer ${{ matrix.cs-fixer }}
 
-    runs-on: ubuntu-latest
+        runs-on: ubuntu-latest
 
-    strategy:
-      fail-fast: true
-      matrix:
-        php: [7.4.9, 8.0]
-        # Make sure we're testing with the lowest supported cs-fixer too because we're currently using @internal marked classes and those can break any time.
-        cs-fixer: [2.16.8, ^2.16.8]
-        exclude:
-          - php: 8.0
-            cs-fixer: 2.16.8
+        strategy:
+            fail-fast: true
+            matrix:
+                php: [ 7.4.9, 8.0 ]
+                # Make sure we're testing with the lowest supported cs-fixer too because we're currently using @internal marked classes and those can break any time.
+                cs-fixer: [ 2.16.8, ^2.16.8 ]
+                exclude:
+                    -   php: 8.0
+                        cs-fixer: 2.16.8
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+        steps:
+            -   name: Checkout code
+                uses: actions/checkout@v2
 
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ matrix.php }}
-          extensions: dom, curl, libxml, mbstring, zip
-          tools: composer:v2
-          coverage: none
+            -   name: Setup PHP
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: ${{ matrix.php }}
+                    extensions: dom, curl, libxml, mbstring, zip
+                    tools: composer:v2
+                    coverage: none
 
-      - name: Validate composer.json and composer.lock
-        run: composer validate
+            -   name: Validate composer.json and composer.lock
+                run: composer validate
 
-      - name: Cache Composer packages
-        id: composer-cache
-        uses: actions/cache@v2
-        with:
-          path: vendor
-          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-php-
+            -   name: Cache Composer packages
+                id: composer-cache
+                uses: actions/cache@v2
+                with:
+                    path: vendor
+                    key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+                    restore-keys: |
+                        ${{ runner.os }}-php-
 
-      - name: Install dependencies
-        run: |
-          composer require "friendsofphp/php-cs-fixer=${{ matrix.cs-fixer }}" --no-update
-          composer install --dev --prefer-dist --no-progress --no-suggest
+            -   name: Install dependencies
+                run: |
+                    composer require "friendsofphp/php-cs-fixer=${{ matrix.cs-fixer }}" --no-update
+                    composer install --prefer-dist --no-progress
 
-      - name: Execute tests
-        run: vendor/bin/pest --colors=always
+            -   name: Execute tests
+                run: composer test -- --colors=always
 
-  code-style:
-    name: Code style
+            # Those should usually be a separate job, but as GitHub Actions currently does not support any form of sharing
+            # steps or an image between them, extracting those to a separate job would mean a full blown copy-paste of this one.
+            -   name: Install dependencies
+                run: composer install --prefer-dist --no-progress --working-dir=tools/phpstan
 
-    runs-on: ubuntu-latest
+            -   name: Run phpstan
+                run: composer phpstan
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    code-style:
+        name: Code style
 
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: 8.0
-          extensions: dom, curl, libxml, mbstring, zip
-          tools: composer:v2
-          coverage: none
+        runs-on: ubuntu-latest
 
-      - name: Cache Composer packages
-        id: composer-cache
-        uses: actions/cache@v2
-        with:
-          path: vendor
-          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-php-
+        steps:
+            -   name: Checkout code
+                uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: composer install --dev --prefer-dist --no-progress --no-suggest --working-dir=tools/php-cs-fixer
+            -   name: Setup PHP
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: 8.0
+                    extensions: dom, curl, libxml, mbstring, zip
+                    tools: composer:v2
+                    coverage: none
 
-      - name: Run php-cs-fixer
-        run: composer cs-fix -- --dry-run --diff --using-cache=no --diff-format udiff
+            -   name: Cache Composer packages
+                id: composer-cache
+                uses: actions/cache@v2
+                with:
+                    path: vendor
+                    key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+                    restore-keys: |
+                        ${{ runner.os }}-php-
+
+            -   name: Install dependencies
+                run: composer install --prefer-dist --no-progress --working-dir=tools/php-cs-fixer
+
+            -   name: Run php-cs-fixer
+                run: composer cs-fix -- --dry-run --diff --using-cache=no --diff-format udiff
