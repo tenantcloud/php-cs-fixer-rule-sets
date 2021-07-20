@@ -11,7 +11,7 @@
 	],
 	"require": {
 		"php": ">=7.4.9",
-		"friendsofphp/php-cs-fixer": "^2.18.2"
+		"friendsofphp/php-cs-fixer": "^2.19.0"
 	},
 	"require-dev": {
 		"pestphp/pest": "^1.0"
@@ -31,7 +31,7 @@
 	},
 	"scripts": {
 		"test": "./vendor/bin/pest",
-		"cs-fix": "./tools/php-cs-fixer/vendor/bin/php-cs-fixer fix -v --show-progress=estimating",
+		"cs-fix": "./tools/php-cs-fixer/vendor/bin/php-cs-fixer fix -v --show-progress=dots",
 		"phpstan":  "./tools/phpstan/vendor/bin/phpstan analyse"
 	}
 }
