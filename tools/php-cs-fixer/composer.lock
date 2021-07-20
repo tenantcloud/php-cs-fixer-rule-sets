@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9c93362bb43cb314e9d90e5c6ea7afbe",
+    "content-hash": "6bb19e8cf177a5ebbe16fb1cbfe32670",
     "packages": [
         {
             "name": "composer/semver",
@@ -298,21 +298,21 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "dev-master",
+            "version": "2.19.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "44c12df11c238eef99cd1edd200c81448e396ea0"
+                "reference": "b15ab5ff32a2136f0d7440eb0f1465510429a112"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/44c12df11c238eef99cd1edd200c81448e396ea0",
-                "reference": "44c12df11c238eef99cd1edd200c81448e396ea0",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/b15ab5ff32a2136f0d7440eb0f1465510429a112",
+                "reference": "b15ab5ff32a2136f0d7440eb0f1465510429a112",
                 "shasum": ""
             },
             "require": {
                 "composer/semver": "^1.4 || ^2.0 || ^3.0",
-                "composer/xdebug-handler": "^1.2",
+                "composer/xdebug-handler": "^1.2 || ^2.0",
                 "doctrine/annotations": "^1.2",
                 "ext-json": "*",
                 "ext-tokenizer": "*",
@@ -374,6 +374,7 @@
                     "tests/Test/IntegrationCaseFactoryInterface.php",
                     "tests/Test/InternalIntegrationCaseFactory.php",
                     "tests/Test/IsIdenticalConstraint.php",
+                    "tests/Test/TokensWithObservedTransformers.php",
                     "tests/TestCase.php"
                 ]
             },
@@ -394,7 +395,7 @@
             "description": "A tool to automatically fix PHP code style",
             "support": {
                 "issues": "https://github.com/FriendsOfPHP/PHP-CS-Fixer/issues",
-                "source": "https://github.com/FriendsOfPHP/PHP-CS-Fixer/tree/master"
+                "source": "https://github.com/FriendsOfPHP/PHP-CS-Fixer/tree/2.19"
             },
             "funding": [
                 {
@@ -402,7 +403,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-01-26T00:25:53+00:00"
+            "time": "2021-07-17T13:26:43+00:00"
         },
         {
             "name": "php-cs-fixer/diff",
