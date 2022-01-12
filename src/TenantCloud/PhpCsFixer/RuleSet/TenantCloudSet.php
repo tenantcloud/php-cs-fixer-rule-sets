@@ -52,13 +52,17 @@ class TenantCloudSet implements RuleSetDescriptionInterface
 	public function getRules(): array
 	{
 		return [
-			'@PhpCsFixer'            => true,
-			'@Symfony'               => true,
-			'@Symfony:risky'         => true,
-			'@PSR12'                 => true,
-			'@PSR12:risky'           => true,
-			'array_syntax'           => ['syntax' => 'short'],
-			'binary_operator_spaces' => [
+			'@PhpCsFixer'                              => true,
+			'@Symfony'                                 => true,
+			'@Symfony:risky'                           => true,
+			'@PSR12'                                   => true,
+			'@PSR12:risky'                             => true,
+			'assign_null_coalescing_to_coalesce_equal' => true,
+			'modernize_strpos'                         => true,
+			'empty_loop_condition'                     => true,
+			'declare_parentheses'                      => true,
+			'array_syntax'                             => ['syntax' => 'short'],
+			'binary_operator_spaces'                   => [
 				'default'   => 'single_space',
 				'operators' => [
 					'=>' => 'align_single_space_minimal',
