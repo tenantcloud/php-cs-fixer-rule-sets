@@ -14,5 +14,3 @@ parameters:
 		- '#Call to an undefined method Pest\\Expectation|Pest\\Support\\Extendable::#i'
 		# php-cs-fixer must specify a return type (or, rather, remake the way rule configuration is implemented)
 		- '#Method TenantCloud\\PhpCsFixer\\RuleSet\\TenantCloudSet::getRules\(\) return type has no value type specified in iterable type array\.#i'
-		# No, PHPStan is wrong. It doesn't expect a string.
-		- '#Parameter \#2 \$value of method ReflectionClass<PhpCsFixer\\RuleSet\\RuleSets>::setStaticPropertyValue\(\) expects string, array<string, PhpCsFixer\\RuleSet\\RuleSetDescriptionInterface> given\.#i'
