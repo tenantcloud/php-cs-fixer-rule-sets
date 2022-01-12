@@ -13,9 +13,9 @@ jobs:
         strategy:
             fail-fast: true
             matrix:
-                php: [ 7.4.9, 8.0 ]
+                php: [7.4.9, 8.0, 8.1]
                 # Make sure we're testing with the lowest supported cs-fixer too because we're currently using @internal marked classes and those can break any time.
-                cs-fixer: [ 2.16.8, ^2.16.8 ]
+                cs-fixer: [^2.16.8, 3.4.0]
                 exclude:
                     -   php: 8.0
                         cs-fixer: 2.16.8
