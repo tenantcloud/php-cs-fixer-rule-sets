@@ -144,6 +144,10 @@ class TenantCloudSet implements RuleSetDescriptionInterface
 			'heredoc_indentation'              => true,
 			'use_arrow_functions'              => true,
 			'no_trailing_whitespace_in_string' => false,
+			'phpdoc_no_alias_tag'              => [
+				// Default except property-read and property-write replacement
+				'replacements' => ['type' => 'var', 'link' => 'see'],
+			],
 		];
 	}
 }
