@@ -22,7 +22,7 @@ class TenantCloudSet implements RuleSetDescriptionInterface
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @inheritDoc
 	 */
 	public function getName(): string
 	{
@@ -30,7 +30,7 @@ class TenantCloudSet implements RuleSetDescriptionInterface
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @inheritDoc
 	 */
 	public function getDescription(): string
 	{
@@ -38,7 +38,7 @@ class TenantCloudSet implements RuleSetDescriptionInterface
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @inheritDoc
 	 */
 	public function isRisky(): bool
 	{
@@ -47,7 +47,7 @@ class TenantCloudSet implements RuleSetDescriptionInterface
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * @inheritDoc
 	 */
 	public function getRules(): array
 	{
@@ -147,6 +147,19 @@ class TenantCloudSet implements RuleSetDescriptionInterface
 			'phpdoc_no_alias_tag'              => [
 				// Default except property-read and property-write replacement
 				'replacements' => ['type' => 'var', 'link' => 'see'],
+			],
+			// Force {@inheritDoc} to @inheritDoc whenever possible.
+			'phpdoc_tag_type' => [
+				'tags' => [
+					'inheritDoc' => 'annotation',
+				],
+			],
+			// Rename lower case & plural form @inheritDoc
+			'general_phpdoc_tag_rename' => [
+				'replacements' => [
+					'inheritDocs' => 'inheritDoc',
+					'inheritdoc'  => 'inheritDoc',
+				],
 			],
 		];
 	}
