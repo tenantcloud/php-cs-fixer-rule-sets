@@ -2,8 +2,6 @@
 
 namespace TenantCloud\PhpCsFixer\RuleSet;
 
-use PhpCsFixer\RuleSet\RuleSetDescriptionInterface;
-
 /**
  * Rule set of all TenantCloud's projects.
  *
@@ -12,44 +10,12 @@ use PhpCsFixer\RuleSet\RuleSetDescriptionInterface;
  *  - the least amount of merges (ordered imports etc)
  *  - PSR practices
  */
-class TenantCloudSet implements RuleSetDescriptionInterface
+class TenantCloudSet
 {
 	/**
-	 * Why the hell does PHP allow you to put this into an interface? ....
+	 * @return array<string, boolean|array<string, mixed>>
 	 */
-	public function __construct()
-	{
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	public function getName(): string
-	{
-		return '@TenantCloud';
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	public function getDescription(): string
-	{
-		return 'TenantCloud\'s default rule set';
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	public function isRisky(): bool
-	{
-		// Includes risky sets, hence is risky.
-		return true;
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	public function getRules(): array
+	public function rules(): array
 	{
 		return [
 			'@PhpCsFixer'                              => true,
