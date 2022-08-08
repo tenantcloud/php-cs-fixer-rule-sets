@@ -6,8 +6,8 @@ Install dependencies:
 Run tests:
 `docker run -it --rm -v $PWD:/app -w /app php:8.1-cli vendor/bin/pest`
 
-Run php-cs-fixer on self:
+Run php-cs-fixer:
 `docker run -it --rm -v $PWD:/app -w /app composer cs-fix`
 
-Run phpstan on self:
+Run phpstan:
 `docker run -it --rm -v $PWD:/app -w /app composer phpstan`
