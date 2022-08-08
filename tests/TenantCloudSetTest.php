@@ -2,9 +2,8 @@
 
 use TenantCloud\PhpCsFixer\RuleSet\TenantCloudSet;
 
-it('returns correct descriptions', function () {
-	$set = new TenantCloudSet();
+it('returns rules', function () {
+	$rules = (new TenantCloudSet())->rules();
 
-	expect($set->getName())->toBe('@TenantCloud');
-	expect($set->isRisky())->toBeTrue();
+	expect($rules)->toBeArray();
 });

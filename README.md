@@ -6,21 +6,25 @@ Install the package:
 
 Then use the rule sets in php-cs-fixer's config:
 ```php
-return (new PhpCsFixer\Config())
+require __DIR__ . '/vendor/tenantcloud/php-cs-fixer-rule-sets/src/TenantCloud/PhpCsFixer/RuleSet/TenantCloudSet.php';
+
+use PhpCsFixer\Config;
+use PhpCsFixer\Finder;
+use TenantCloud\PhpCsFixer\RuleSet\TenantCloudSet;
+
+$finder = Finder::create()
+	->in('src')
+	->in('tests')
+	->name('*.php')
+	->notName('_*.php')
+	->ignoreVCS(true);
+
+return (new Config())
 	->setFinder($finder)
 	->setRiskyAllowed(true)
 	->setIndent("\t")
 	->setRules([
-		'@TenantCloud' => true,
+		...(new TenantCloudSet())->rules(),
 	]);
 ```
 
-## Commands
-Install dependencies:
-`docker run -it --rm -v $PWD:/app -w /app composer install`
-
-Run tests:
-`docker run -it --rm -v $PWD:/app -w /app php:7.4-cli vendor/bin/pest`
-
-Run php-cs-fixer on self:
-`docker run -it --rm -v $PWD:/app -w /app composer cs-fix`

@@ -1,8 +1,8 @@
 includes:
-	- tools/phpstan/vendor/phpstan/phpstan/conf/bleedingEdge.neon
+	- vendor/phpstan/phpstan/conf/bleedingEdge.neon
 
 parameters:
-	level: 8
+	level: max
 	tmpDir: ./tmp/phpstan
 
 	paths:
@@ -12,5 +12,3 @@ parameters:
 	ignoreErrors:
 		# There's no extension for that :(
 		- '#Call to an undefined method Pest\\Expectation|Pest\\Support\\Extendable::#i'
-		# php-cs-fixer must specify a return type (or, rather, remake the way rule configuration is implemented)
-		- '#Method TenantCloud\\PhpCsFixer\\RuleSet\\TenantCloudSet::getRules\(\) return type has no value type specified in iterable type array\.#i'
