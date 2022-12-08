@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/tenantcloud/php-cs-fixer-rule-sets/compare/v2.0.0...v2.0.1) (2022-12-08)
+
+
+### Bug Fixes
+
+* Avoid conversion of PHPDoc with [@var](https://github.com/var) or [@use](https://github.com/use); avoid dropping unused lambda imports due to reflection ([#16](https://github.com/tenantcloud/php-cs-fixer-rule-sets/issues/16)) ([8e4a44a](https://github.com/tenantcloud/php-cs-fixer-rule-sets/commit/8e4a44a6948e9cd00abef53638da20d9613581da))
+
 # [2.0.0](https://github.com/tenantcloud/php-cs-fixer-rule-sets/compare/v1.4.0...v2.0.0) (2022-08-08)
 
 
