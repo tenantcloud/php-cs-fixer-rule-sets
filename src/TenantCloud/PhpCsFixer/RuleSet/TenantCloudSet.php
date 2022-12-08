@@ -129,10 +129,10 @@ class TenantCloudSet
 			],
 			// Some code uses reflection to fetch seemingly unused lambda imports.
 			'lambda_not_used_import' => false,
-			'phpdoc_to_comment' => [
+			'phpdoc_to_comment'      => [
 				// Avoid converting generic trait uses and return type variable declaration from PHPDoc to comments
-				'ignored_tags' => ['var', 'use']
-			]
+				'ignored_tags' => ['var', 'use'],
+			],
 		];
 	}
 }
