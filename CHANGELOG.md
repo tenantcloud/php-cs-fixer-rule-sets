@@ -1,3 +1,12 @@
+## [2.0.2](https://github.com/tenantcloud/php-cs-fixer-rule-sets/compare/v2.0.1...v2.0.2) (2023-06-20)
+
+
+### Bug Fixes
+
+* Allow any 3.x version of php-cs-fixer with rule sets ([#17](https://github.com/tenantcloud/php-cs-fixer-rule-sets/issues/17)) ([c0d4478](https://github.com/tenantcloud/php-cs-fixer-rule-sets/commit/c0d447814e99d0444880c8a7db6d066ecc8fb1b1))
+* Failing release job ([#18](https://github.com/tenantcloud/php-cs-fixer-rule-sets/issues/18)) ([4395baf](https://github.com/tenantcloud/php-cs-fixer-rule-sets/commit/4395baf24c7679d9879f07d6ce777d8995a6b5de))
+* Fix release ([#19](https://github.com/tenantcloud/php-cs-fixer-rule-sets/issues/19)) ([5729266](https://github.com/tenantcloud/php-cs-fixer-rule-sets/commit/572926655e6bf08ac99c54115943d14f79bd1ec3))
+
 ## [2.0.1](https://github.com/tenantcloud/php-cs-fixer-rule-sets/compare/v2.0.0...v2.0.1) (2022-12-08)
 
 
