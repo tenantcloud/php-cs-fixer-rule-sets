@@ -18,107 +18,45 @@ class TenantCloudSet
 	public function rules(): array
 	{
 		return [
-			'@PhpCsFixer'                              => true,
-			'@Symfony'                                 => true,
-			'@Symfony:risky'                           => true,
-			'@PSR12'                                   => true,
-			'@PSR12:risky'                             => true,
+			'@PhpCsFixer'    => true,
+			'@Symfony'       => true,
+			'@Symfony:risky' => true,
+			'@PSR12'         => true,
+			'@PSR12:risky'   => true,
+			// Use `??=` whenever possible
 			'assign_null_coalescing_to_coalesce_equal' => true,
-			'modernize_strpos'                         => true,
-			'empty_loop_condition'                     => true,
-			'declare_parentheses'                      => true,
-			'array_syntax'                             => ['syntax' => 'short'],
-			'binary_operator_spaces'                   => [
-				'default'   => 'single_space',
+			// Single space before/after operators (=, <=, >=, ?? etc), except for `=>`
+			'binary_operator_spaces' => [
 				'operators' => [
 					'=>' => 'align_single_space_minimal',
 				],
 			],
+			// Blank line before all of those constructs.
 			'blank_line_before_statement' => [
 				'statements' => [
-					'break', 'continue', 'declare', 'default', 'do', 'while', 'for',
-					'foreach', 'goto', 'if', 'return', 'switch', 'throw', 'try', 'yield',
+					'break', 'continue', 'declare', 'default', 'do', 'exit', 'for', 'foreach',
+					'goto', 'if', 'return', 'switch', 'throw', 'try', 'while', 'yield', 'yield_from',
 				],
 			],
-			'braces' => [
-				'position_after_control_structures'                 => 'same',
-				'allow_single_line_anonymous_class_with_empty_body' => true,
-			],
+			// One blank line in between methods and properties
 			'class_attributes_separation' => [
 				'elements' => ['method' => 'one', 'property' => 'one'],
 			],
+			// Spaces around string concatenation 'asd' . 'asd'
 			'concat_space' => [
 				'spacing' => 'one',
-			],
-			'increment_style' => [
-				'style' => 'post',
-			],
-			'linebreak_after_opening_tag' => true,
-			'native_function_invocation'  => false,
-			'ordered_class_elements'      => [
-				'order' => [
-					'use_trait',
-					'constant_public', 'constant_protected', 'constant_private',
-					'property_static', 'property_public_static', 'property_protected_static', 'property_private_static',
-					'property_public', 'property_protected', 'property_private',
-					'construct', 'destruct', 'magic', 'phpunit',
-					'method_static', 'method_public_static', 'method_protected_static', 'method_private_static',
-					'method_public', 'method_protected', 'method_private',
-				],
-			],
-			'ordered_imports'            => true,
-			'phpdoc_no_empty_return'     => false,
-			'phpdoc_summary'             => false,
-			'ternary_to_null_coalescing' => true,
-			'visibility_required'        => [
-				'elements' => [
-					'const', 'property', 'method',
-				],
-			],
-			'yoda_style'                          => ['always_move_variable' => true, 'equal' => false, 'identical' => false],
-			'php_unit_test_class_requires_covers' => false,
-			'php_unit_internal_class'             => false,
-			'protected_to_private'                => false,
-			// Adds stupid semicolons on newlines
-			'multiline_whitespace_before_semicolons' => false,
-			// Doesn't work with "nested" chaining
-			'method_chaining_indentation' => true,
-			'mb_str_functions'            => true,
-			'global_namespace_import'     => true,
-			'list_syntax'                 => [
-				'syntax' => 'short',
-			],
-			'phpdoc_line_span' => [
-				'const'    => 'single',
-				'property' => 'single',
-			],
-			'general_phpdoc_annotation_remove' => [
-				// We don't believe so called "checked exceptions" are a good design. We're following the logic of Kotlin:
-				// https://kotlinlang.org/docs/reference/exceptions.html#checked-exceptions
-				'annotations' => ['throws'],
 			],
 			'error_suppression' => [
 				// Mutes trigger_error() with E_USER_DEPRECATED, but we handle deprecations manually so this is needed.
 				'mute_deprecation_error' => false,
 			],
-			'operator_linebreak' => [
-				'only_booleans' => true,
-				'position'      => 'end',
-			],
-			'native_constant_invocation'       => false,
-			'simplified_if_return'             => true,
-			'heredoc_indentation'              => true,
-			'use_arrow_functions'              => true,
-			'no_trailing_whitespace_in_string' => false,
-			'phpdoc_no_alias_tag'              => [
-				// Default except property-read and property-write replacement
-				'replacements' => ['type' => 'var', 'link' => 'see'],
-			],
-			// Force {@inheritDoc} to @inheritDoc whenever possible.
-			'phpdoc_tag_type' => [
-				'tags' => [
-					'inheritDoc' => 'annotation',
-				],
+			// Import global classes, but neither require nor forbid function/constant imports
+			'global_namespace_import' => true,
+			// Remove @throws from code.
+			'general_phpdoc_annotation_remove' => [
+				// We don't believe so called "checked exceptions" are a good design. We're following the logic of Kotlin:
+				// https://kotlinlang.org/docs/reference/exceptions.html#checked-exceptions
+				'annotations' => ['throws'],
 			],
 			// Rename lower case & plural form @inheritDoc
 			'general_phpdoc_tag_rename' => [
@@ -127,11 +65,99 @@ class TenantCloudSet
 					'inheritdoc'  => 'inheritDoc',
 				],
 			],
-			// Some code uses reflection to fetch seemingly unused lambda imports.
+			// Forces proper indentation on Heredoc/Nowdoc
+			'heredoc_indentation' => true,
+			// `$i++` instead of `++$i`
+			'increment_style' => [
+				'style' => 'post',
+			],
+			// `[$var1, $var2] = something()` instead of `list($var1, $var2) = something()`
+			'list_syntax' => [
+				'syntax' => 'short',
+			],
+			// Do not remove "unused" use($var) from closures, as some Laravel code uses reflection to access those.
 			'lambda_not_used_import' => false,
-			'phpdoc_to_comment'      => [
+			// Do not move semicolon to a newline after a multiline construct.
+			'multiline_whitespace_before_semicolons' => false,
+			// Replace `str*` functions with `mb_str*`
+			'mb_str_functions' => true,
+			// Allow `strpos()` instead of `\strpos()`
+			'native_function_invocation' => false,
+			// Allow `JSON_THROW_ON_ERROR` instead of `\JSON_THROW_ON_ERROR`
+			'native_constant_invocation' => false,
+			// Do not remove trailing whitespace from string as it might break something with no profit.
+			'no_trailing_whitespace_in_string' => false,
+			// Reorder constructs in a class/interface/enum
+			'ordered_class_elements' => [
+				'order' => [
+					// First `use SomeTrait`
+					'use_trait',
+					// Then enums `case SOMETHING`
+					'case',
+					// Then `public const` and `private const`
+					'constant_public', 'constant_protected', 'constant_private',
+					// Then `public` and `private` properties, both static and regular, in no specific order.
+					'property_public', 'property_protected', 'property_private',
+					// `__construct` after properties, but before all methods
+					'construct',
+					// PHPUnit's `setUp` and `tearDown` before all test cases and methods
+					'phpunit',
+					// Then `public` and `private` methods, both static and regular, in no specific order.
+					'method_public', 'method_protected', 'method_private',
+					// `__magic` after all regular methods
+					'magic',
+					// __destruct always last
+					'destruct',
+				],
+			],
+			// Sort imports by class, function and then const. Sort by alphabet in each of the groups.
+			'ordered_imports' => [
+				'imports_order'  => ['class', 'function', 'const'],
+				'sort_algorithm' => 'alpha',
+			],
+			// Forces `&&` and `||` (or similar) operators to be at the end of the line, when multiline.
+			'operator_linebreak' => [
+				'only_booleans' => true,
+				'position'      => 'end',
+			],
+			// Allow PHPDoc summary to not end with a punctuation symbol.
+			'phpdoc_summary' => false,
+			// Do not require @coversNothing for PHPUnit test cases for now
+			'php_unit_test_class_requires_covers' => false,
+			// Do not mark PHPUnit test cases as @internal
+			'php_unit_internal_class' => false,
+			// Do not convert protected to private because it's risky. Better done with Rector
+			'protected_to_private' => false,
+			// Forces PHPDoc to be single line for constants and properties.
+			'phpdoc_line_span' => [
+				'const'    => 'single',
+				'property' => 'single',
+			],
+			// Do not replace `@property-read` and `@property-write` with `@property`
+			'phpdoc_no_alias_tag' => [
+				'replacements' => ['type' => 'var', 'link' => 'see'],
+			],
+			// Force {@inheritDoc} to @inheritDoc whenever possible.
+			'phpdoc_tag_type' => [
+				'tags' => [
+					'inheritDoc' => 'annotation',
+				],
+			],
+			'phpdoc_to_comment' => [
 				// Avoid converting generic trait uses and return type variable declaration from PHPDoc to comments
 				'ignored_tags' => ['var', 'use'],
+			],
+			// Simplifies `if($cond) { return true; } return false` kind of cases into `return (bool) $cond;`
+			'simplified_if_return' => true,
+			// Use `??` whenever possible
+			'ternary_to_null_coalescing' => true,
+			// Converts closures to arrow functions whenever possible
+			'use_arrow_functions' => true,
+			// `$something === 'string'` instead of `'string' === $something`
+			'yoda_style' => [
+				'always_move_variable' => true,
+				'equal'                => false,
+				'identical'            => false,
 			],
 		];
 	}

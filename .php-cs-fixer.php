@@ -1,6 +1,5 @@
 <?php
 
-//require __DIR__ . '/vendor/tenantcloud/php-cs-fixer-rule-sets/PhpdocSingleLineVarFixer.php';
 require __DIR__ . '/src/TenantCloud/PhpCsFixer/RuleSet/TenantCloudSet.php';
 
 use PhpCsFixer\Config;
