@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/tenantcloud/php-cs-fixer-rule-sets/compare/v2.0.2...v2.1.0) (2023-06-23)
+
+
+### Features
+
+* Add new rules / change existing ([#20](https://github.com/tenantcloud/php-cs-fixer-rule-sets/issues/20)) ([5a34ca8](https://github.com/tenantcloud/php-cs-fixer-rule-sets/commit/5a34ca81b4703d802e9195a4a10ed409035cc7c0))
+
 ## [2.0.2](https://github.com/tenantcloud/php-cs-fixer-rule-sets/compare/v2.0.1...v2.0.2) (2023-06-20)
 
 
