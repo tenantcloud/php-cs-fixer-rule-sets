@@ -1,13 +1,7 @@
-# php-cs-fixer rule sets
+<?php
 
-## Usage
-Install the package:
-`composer require --dev tenantcloud/php-cs-fixer-rule-sets`
-
-Then use the rule sets in php-cs-fixer's config:
-```php
 require __DIR__ . '/vendor/kubawerlos/php-cs-fixer-custom-fixers/bootstrap.php';
-require __DIR__ . '/vendor/tenantcloud/php-cs-fixer-rule-sets/bootstrap.php';
+require __DIR__ . '/bootstrap.php';
 
 use PhpCsFixer\Finder;
 use TenantCloud\PhpCsFixer\Config;
@@ -21,5 +15,3 @@ $finder = Finder::create()
 	->ignoreVCS(true);
 
 return Config::make()->setFinder($finder);
-```
-
