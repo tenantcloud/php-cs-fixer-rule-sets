@@ -10,5 +10,6 @@ parameters:
 		- tests
 
 	ignoreErrors:
-		# There's no extension for that :(
-		- '#Call to an undefined method Pest\\Expectation|Pest\\Support\\Extendable::#i'
+		-
+			message: '#.*#'
+			path: 'src/TenantCloud/PhpCsFixer/Config.php'

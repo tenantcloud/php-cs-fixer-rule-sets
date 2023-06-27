@@ -2,6 +2,25 @@
 
 namespace TenantCloud\PhpCsFixer\RuleSet;
 
+use PhpCsFixerCustomFixers\Fixer\CommentSurroundedBySpacesFixer;
+use PhpCsFixerCustomFixers\Fixer\ConstructorEmptyBracesFixer;
+use PhpCsFixerCustomFixers\Fixer\DataProviderReturnTypeFixer;
+use PhpCsFixerCustomFixers\Fixer\DeclareAfterOpeningTagFixer;
+use PhpCsFixerCustomFixers\Fixer\EmptyFunctionBodyFixer;
+use PhpCsFixerCustomFixers\Fixer\MultilineCommentOpeningClosingAloneFixer;
+use PhpCsFixerCustomFixers\Fixer\MultilinePromotedPropertiesFixer;
+use PhpCsFixerCustomFixers\Fixer\NoTrailingCommaInSinglelineFixer;
+use PhpCsFixerCustomFixers\Fixer\NoUselessCommentFixer;
+use PhpCsFixerCustomFixers\Fixer\NoUselessParenthesisFixer;
+use PhpCsFixerCustomFixers\Fixer\NoUselessStrlenFixer;
+use PhpCsFixerCustomFixers\Fixer\PhpdocParamTypeFixer;
+use PhpCsFixerCustomFixers\Fixer\PhpdocSelfAccessorFixer;
+use PhpCsFixerCustomFixers\Fixer\PhpdocTypesCommaSpacesFixer;
+use PhpCsFixerCustomFixers\Fixer\PhpdocTypesTrimFixer;
+use PhpCsFixerCustomFixers\Fixer\PhpUnitAssertArgumentsOrderFixer;
+use PhpCsFixerCustomFixers\Fixer\PhpUnitDedicatedAssertFixer;
+use PhpCsFixerCustomFixers\Fixer\PhpUnitNoUselessReturnFixer;
+
 /**
  * Rule set of all TenantCloud's projects.
  *
@@ -126,6 +145,13 @@ class TenantCloudSet
 			'php_unit_test_class_requires_covers' => false,
 			// Do not mark PHPUnit test cases as @internal
 			'php_unit_internal_class' => false,
+			// Force naming on PHPUnit test data providers to match the test: `testSomething` -> `somethingProvider`
+			'php_unit_data_provider_name' => [
+				'prefix' => '',
+				'suffix' => 'Provider',
+			],
+			// Force PHPUnit test data providers to be static functions
+			'php_unit_data_provider_static' => true,
 			// Do not convert protected to private because it's risky. Better done with Rector
 			'protected_to_private' => false,
 			// Forces PHPDoc to be single line for constants and properties.
@@ -159,6 +185,28 @@ class TenantCloudSet
 				'equal'                => false,
 				'identical'            => false,
 			],
+
+			CommentSurroundedBySpacesFixer::name()           => true,
+			ConstructorEmptyBracesFixer::name()              => true,
+			DataProviderReturnTypeFixer::name()              => true,
+			DeclareAfterOpeningTagFixer::name()              => true,
+			EmptyFunctionBodyFixer::name()                   => true,
+			MultilineCommentOpeningClosingAloneFixer::name() => true,
+			MultilinePromotedPropertiesFixer::name()         => [
+				'minimum_number_of_parameters' => 2,
+			],
+			NoTrailingCommaInSinglelineFixer::name() => true,
+			NoUselessCommentFixer::name()            => true,
+			NoUselessParenthesisFixer::name()        => true,
+			NoUselessStrlenFixer::name()             => true,
+			PhpUnitAssertArgumentsOrderFixer::name() => true,
+			PhpUnitDedicatedAssertFixer::name()      => true,
+			PhpUnitNoUselessReturnFixer::name()      => true,
+			PhpdocParamTypeFixer::name()             => true,
+			PhpdocSelfAccessorFixer::name()          => true,
+			PhpdocTypesCommaSpacesFixer::name()      => true,
+			PhpdocTypesTrimFixer::name()             => true,
+			PhpdocSelfAccessorFixer::name()          => true,
 		];
 	}
 }
