@@ -1,3 +1,17 @@
+# [3.0.0](https://github.com/tenantcloud/php-cs-fixer-rule-sets/compare/v2.1.0...v3.0.0) (2023-06-27)
+
+
+### Features
+
+* New rules ([#21](https://github.com/tenantcloud/php-cs-fixer-rule-sets/issues/21)) ([cf8666a](https://github.com/tenantcloud/php-cs-fixer-rule-sets/commit/cf8666a9bfba5737f5c4c85f51ddb5c0e3894313))
+
+
+### BREAKING CHANGES
+
+* Changes to .php-cs-fixer.php are necessary
+
+* fix: Missing tests directory
+
 # [2.1.0](https://github.com/tenantcloud/php-cs-fixer-rule-sets/compare/v2.0.2...v2.1.0) (2023-06-23)
 
 
