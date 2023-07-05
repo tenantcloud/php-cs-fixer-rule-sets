@@ -12,4 +12,4 @@ parameters:
 	ignoreErrors:
 		-
 			message: '#.*#'
-			path: 'src/TenantCloud/PhpCsFixer/Config.php'
+			path: 'src/Config.php'
