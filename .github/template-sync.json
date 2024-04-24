@@ -3,7 +3,6 @@
 		{
 			"url": "https://github.com/tenantcloud/php-package-skeleton",
 			"branch": "sync",
-
 			"after": {
 				"plugins": [
 					".github/template-sync/replace-bootstrap-in-cs-fixer.js"
