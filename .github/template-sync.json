@@ -2,7 +2,14 @@
 	"repositories": [
 		{
 			"url": "https://github.com/tenantcloud/php-package-skeleton",
-			"branch": "sync"
+			"branch": "sync",
+
+			"after": {
+				"plugins": [
+					".github/template-sync/remove-cs-fixer-from-require-dev.js",
+					".github/template-sync/replace-bootstrap-in-cs-fixer.js"
+				]
+			}
 		}
 	]
 }
