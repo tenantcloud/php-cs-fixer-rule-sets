@@ -6,7 +6,6 @@
 
 			"after": {
 				"plugins": [
-					".github/template-sync/remove-cs-fixer-from-require-dev.js",
 					".github/template-sync/replace-bootstrap-in-cs-fixer.js"
 				]
 			}
