@@ -32,7 +32,7 @@ use PhpCsFixerCustomFixers\Fixer\PhpUnitNoUselessReturnFixer;
 class TenantCloudSet
 {
 	/**
-	 * @return array<string, boolean|array<string, mixed>>
+	 * @return array<string, bool|array<string, mixed>>
 	 */
 	public function rules(): array
 	{
