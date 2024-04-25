@@ -1,3 +1,10 @@
+# [3.2.0](https://github.com/tenantcloud/php-cs-fixer-rule-sets/compare/v3.1.0...v3.2.0) (2024-04-25)
+
+
+### Features
+
+* Template sync ([#24](https://github.com/tenantcloud/php-cs-fixer-rule-sets/issues/24)) ([841838b](https://github.com/tenantcloud/php-cs-fixer-rule-sets/commit/841838b1d16d20f76245ba3c40faa2fe6a775901)), closes [#23](https://github.com/tenantcloud/php-cs-fixer-rule-sets/issues/23)
+
 # [3.0.0](https://github.com/tenantcloud/php-cs-fixer-rule-sets/compare/v2.1.0...v3.0.0) (2023-06-27)
 
 
