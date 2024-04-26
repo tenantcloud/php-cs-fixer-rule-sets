@@ -377,7 +377,9 @@ class TenantCloudSet implements IteratorAggregate
 			'php_unit_mock_short_will_return'        => true,
 			'php_unit_set_up_tear_down_visibility'   => true,
 			'php_unit_test_annotation'               => true,
-			'php_unit_test_case_static_method_calls' => true,
+			'php_unit_test_case_static_method_calls' => [
+				'call_type' => 'self',
+			],
 			// array<Foo> insteadof Foo[]
 			'phpdoc_array_type'                   => true,
 			'phpdoc_add_missing_param_annotation' => true,
