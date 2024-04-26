@@ -507,7 +507,6 @@ class TenantCloudSet implements IteratorAggregate
 			'standardize_increment'       => true,
 			'standardize_not_equals'      => true,
 			'statement_indentation'       => true,
-			'static_lambda'               => true,
 			'string_implicit_backslashes' => [
 				'single_quoted' => 'ignore',
 			],
@@ -559,7 +558,9 @@ class TenantCloudSet implements IteratorAggregate
 			PhpdocTypesTrimFixer::name()             => true,
 			PhpdocSelfAccessorFixer::name()          => true,
 			PhpdocNoSuperfluousParamFixer::name()    => true,
-			PromotedConstructorPropertyFixer::name() => true,
+			PromotedConstructorPropertyFixer::name() => [
+				'promote_only_existing_properties' => true,
+			],
 			// Occasionally useful when refactoring code and you're adding imports
 			NoDuplicatedImportsFixer::name() => true,
 		];
@@ -676,6 +677,8 @@ class TenantCloudSet implements IteratorAggregate
 			// PHPDoc of the function being called. Adding types to such anonymous function just
 			// clutters the code with useless and already known types.
 			'void_return' => false,
+			// Laravel does some ->bindTo() and ->call() on Closures, which breaks the static closures
+			'static_lambda' => false,
 			// Commenting out means the functions stay in the code. It's not perfect,
 			// so that's better done with tooling like PHPStan.
 			CommentedOutFunctionFixer::name() => false,
