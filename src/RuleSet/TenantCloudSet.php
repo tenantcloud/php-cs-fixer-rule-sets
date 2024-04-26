@@ -377,9 +377,6 @@ class TenantCloudSet implements IteratorAggregate
 			'php_unit_mock_short_will_return'        => true,
 			'php_unit_set_up_tear_down_visibility'   => true,
 			'php_unit_test_annotation'               => true,
-			'php_unit_test_case_static_method_calls' => [
-				'call_type' => 'self',
-			],
 			// array<Foo> insteadof Foo[]
 			'phpdoc_array_type'                   => true,
 			'phpdoc_add_missing_param_annotation' => true,
@@ -589,6 +586,10 @@ class TenantCloudSet implements IteratorAggregate
 			// Separate task
 			// Need to first go over existing strings and remove extra leading whitespaces
 			'multiline_string_to_heredoc' => false,
+
+			// Separate task
+			// Does not catch all of the uses. Also a lot of Laravel and our custom assertions use non-static methods.
+			'php_unit_test_case_static_method_calls' => false,
 		];
 	}
 
