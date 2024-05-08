@@ -17,7 +17,7 @@ final class Config
 			->setRiskyAllowed(true)
 			->setIndent("\t")
 			->setRules([
-				...(new TenantCloudSet())->rules(),
+				...new TenantCloudSet(),
 			]);
 	}
 }
