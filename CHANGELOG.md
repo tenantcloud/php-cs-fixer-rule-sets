@@ -1,3 +1,17 @@
+# [3.3.0](https://github.com/tenantcloud/php-cs-fixer-rule-sets/compare/v3.2.0...v3.3.0) (2024-05-13)
+
+
+### Bug Fixes
+
+* Release not triggered ([#28](https://github.com/tenantcloud/php-cs-fixer-rule-sets/issues/28)) ([04d1a57](https://github.com/tenantcloud/php-cs-fixer-rule-sets/commit/04d1a57846d9b662a529adbc2e8b39e6120640a4))
+* Run release on GH runners ([#30](https://github.com/tenantcloud/php-cs-fixer-rule-sets/issues/30)) ([72ec928](https://github.com/tenantcloud/php-cs-fixer-rule-sets/commit/72ec928825b3235b3772dc255e1b159ad2d6b983))
+* Run release outside container ([#29](https://github.com/tenantcloud/php-cs-fixer-rule-sets/issues/29)) ([8aa1968](https://github.com/tenantcloud/php-cs-fixer-rule-sets/commit/8aa1968c7d19f17ee1c079fba7c4b1ab990aef5c))
+
+
+### Features
+
+* New rules ([#27](https://github.com/tenantcloud/php-cs-fixer-rule-sets/issues/27)) ([24b4399](https://github.com/tenantcloud/php-cs-fixer-rule-sets/commit/24b43990e34ea19fa8abbe32aa4ee52a78d865a5))
+
 # [3.2.0](https://github.com/tenantcloud/php-cs-fixer-rule-sets/compare/v3.1.0...v3.2.0) (2024-04-25)
 
 
