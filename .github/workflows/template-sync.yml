@@ -22,7 +22,7 @@ jobs:
                   token: ${{ secrets.GITHUB_TOKEN }}
 
             - name: Reformat using Prettier
-              uses: actionsx/prettier@v3
+              uses: actionsx/prettier@v2
               with:
                   args: --write .
 
