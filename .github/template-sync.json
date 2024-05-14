@@ -5,7 +5,8 @@
 			"branch": "sync",
 			"after": {
 				"plugins": [
-					".github/template-sync/replace-bootstrap-in-cs-fixer.js"
+					".github/template-sync/replace-bootstrap-in-cs-fixer.js",
+					".github/template-sync/remove-php-cs-fixer-from-require-dev.js"
 				]
 			}
 		}

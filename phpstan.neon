@@ -8,8 +8,3 @@ parameters:
 	paths:
 		- src
 		- tests
-
-	ignoreErrors:
-		-
-			message: '#.*#'
-			path: 'src/Config.php'
