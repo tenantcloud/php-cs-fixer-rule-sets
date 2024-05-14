@@ -7,7 +7,7 @@ module.exports = () => async (template, source) => {
 		.toString()
 		.replace(
 			'vendor/tenantcloud/php-cs-fixer-rule-sets/bootstrap.php',
-			'bootstrap.php'
+			'bootstrap.php',
 		);
 
 	await writeFile(source.path('.php-cs-fixer.dist.php'), sourceCsFixerConfig);

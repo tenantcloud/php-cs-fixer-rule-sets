@@ -195,7 +195,8 @@ class TenantCloudSet implements IteratorAggregate
 			'global_namespace_import' => true,
 			'heredoc_closing_marker'  => [
 				'reserved_closing_markers' => [
-					'CSS', 'DIFF', 'HTML', 'JS', 'JSON', 'LUA', 'MD', 'PHP', 'PYTHON', 'RST', 'TS', 'SQL', 'XML', 'YAML',
+					'CSS', 'DIFF', 'HTML', 'JS', 'JSON', 'LUA', 'MD', 'PHP',
+					'PYTHON', 'REGEXP', 'RST', 'TS', 'SQL', 'XML', 'YAML',
 				],
 			],
 			// Forces proper indentation on Heredoc/Nowdoc
