@@ -1,3 +1,10 @@
+## [3.3.1](https://github.com/tenantcloud/php-cs-fixer-rule-sets/compare/v3.3.0...v3.3.1) (2024-05-14)
+
+
+### Bug Fixes
+
+* Don't change REGEXP heredoc marker to default one ([#31](https://github.com/tenantcloud/php-cs-fixer-rule-sets/issues/31)) ([53d57b2](https://github.com/tenantcloud/php-cs-fixer-rule-sets/commit/53d57b25a85aa06c5b96d495dc63fcc68cd7e247))
+
 # [3.3.0](https://github.com/tenantcloud/php-cs-fixer-rule-sets/compare/v3.2.0...v3.3.0) (2024-05-13)
 
 
