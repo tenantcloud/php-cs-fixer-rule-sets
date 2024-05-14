@@ -1,3 +1,10 @@
+# [3.4.0](https://github.com/tenantcloud/php-cs-fixer-rule-sets/compare/v3.3.1...v3.4.0) (2024-05-14)
+
+
+### Features
+
+* Support new PHP ([#35](https://github.com/tenantcloud/php-cs-fixer-rule-sets/issues/35)) ([9cacccb](https://github.com/tenantcloud/php-cs-fixer-rule-sets/commit/9cacccbb2ff3f64e3faba63a957d34821f5edd9b))
+
 ## [3.3.1](https://github.com/tenantcloud/php-cs-fixer-rule-sets/compare/v3.3.0...v3.3.1) (2024-05-14)
 
 
