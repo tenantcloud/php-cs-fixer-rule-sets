@@ -1,3 +1,10 @@
+## [3.4.1](https://github.com/tenantcloud/php-cs-fixer-rule-sets/compare/v3.4.0...v3.4.1) (2025-02-11)
+
+
+### Bug Fixes
+
+* Allow GRAPHQL heredoc ([#36](https://github.com/tenantcloud/php-cs-fixer-rule-sets/issues/36)) ([eb126a3](https://github.com/tenantcloud/php-cs-fixer-rule-sets/commit/eb126a3b2c671982e1fe11345772e73482a81c9a))
+
 # [3.4.0](https://github.com/tenantcloud/php-cs-fixer-rule-sets/compare/v3.3.1...v3.4.0) (2024-05-14)
 
 
